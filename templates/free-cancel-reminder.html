@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Join {{inviterName}}'s Adventure - PickTrip</title>
+  <title>Last chance for free cancellation - PickTrip</title>
 </head>
 
 <body style="margin:0;padding:0;border:0;font:inherit;font-size:100%;line-height:1;-webkit-font-smoothing:antialiased;box-sizing:border-box;height:100%;background-color:#ffffff;">
@@ -27,14 +27,12 @@
               <table border="0" cellpadding="0" cellspacing="0" style="margin-top:0;background-color:#ffffff;border:1px solid #b8b8b8;border-radius:20px;padding:40px 45px 45px;max-width:900px;width:100%;border-collapse:separate;position:relative;">
                 <tr>
                   <td align="center" style="padding-bottom:24px;">
-                    <table border="0" cellpadding="0" cellspacing="0" style="border-collapse:separate;background-color:#e0e7ff;border-radius:50%;width:72px;height:72px;">
+                    <table border="0" cellpadding="0" cellspacing="0" style="border-collapse:separate;background-color:#fee2e2;border-radius:50%;width:72px;height:72px;">
                       <tr>
                         <td align="center" style="width:72px;height:72px;line-height:0;vertical-align:middle;">
-                          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                            <circle cx="9" cy="7" r="4"/>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;">
+                            <circle cx="12" cy="12" r="9"/>
+                            <polyline points="12 7 12 12 15 14"/>
                           </svg>
                         </td>
                       </tr>
@@ -44,7 +42,7 @@
                 <tr>
                   <td>
                     <h1 style="margin:0;padding:0;font-family:'Inter',Helvetica,Arial,sans-serif;font-weight:700;font-size:24px;color:#000000;line-height:normal;text-align:left;">
-                      You're invited to join {{inviterName}}'s adventure
+                      Last chance for free cancellation
                     </h1>
                   </td>
                 </tr>
@@ -52,8 +50,22 @@
                 <tr>
                   <td>
                     <p style="margin:0;padding:0;font-family:'Inter',Helvetica,Arial,sans-serif;font-weight:500;font-size:16px;color:#000000;line-height:24px;text-align:left;">
-                      Exciting news — <strong>{{inviterName}}</strong> wants you on board for an unforgettable trip to <strong>{{destination}}</strong>. Jump into the Itinerary Hub to see the full plan, perks, and what's waiting for you.
+                      Hi {{userName}}, just a heads up — your free cancellation window for <strong>{{itemName}}</strong> closes in about <strong>24 hours</strong>. After that, this booking becomes non-refundable.
                     </p>
+                  </td>
+                </tr>
+                <tr style="height:24px"></tr>
+                <tr>
+                  <td>
+                    <table border="0" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:separate;background-color:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:20px;">
+                      <tr>
+                        <td align="center">
+                          <p style="margin:0;padding:0;font-family:'Inter',Helvetica,Arial,sans-serif;font-weight:600;font-size:13px;color:#991b1b;line-height:18px;text-transform:uppercase;letter-spacing:0.5px;text-align:center;">Free cancellation ends</p>
+                          <p style="margin:8px 0 0 0;padding:0;font-family:'Inter',Helvetica,Arial,sans-serif;font-weight:700;font-size:22px;color:#991b1b;line-height:30px;text-align:center;">{{deadline}}</p>
+                          <p style="margin:4px 0 0 0;padding:0;font-family:'Inter',Helvetica,Arial,sans-serif;font-weight:500;font-size:13px;color:#7f1d1d;line-height:18px;text-align:center;">{{deadlineTimezone}}</p>
+                        </td>
+                      </tr>
+                    </table>
                   </td>
                 </tr>
                 <tr style="height:24px"></tr>
@@ -62,23 +74,42 @@
                     <table border="0" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:separate;background-color:#f7f8fa;border-radius:12px;padding:20px;">
                       <tr>
                         <td>
-                          <p style="margin:0;padding:0;font-family:'Inter',Helvetica,Arial,sans-serif;font-weight:600;font-size:13px;color:#878787;line-height:18px;text-transform:uppercase;letter-spacing:0.5px;">Trip preview</p>
-                          <p style="margin:4px 0 0 0;padding:0;font-family:'Inter',Helvetica,Arial,sans-serif;font-weight:600;font-size:16px;color:#000000;line-height:22px;">{{tripTitle}}</p>
-                          <p style="margin:4px 0 0 0;padding:0;font-family:'Inter',Helvetica,Arial,sans-serif;font-weight:400;font-size:14px;color:#878787;line-height:20px;">{{tripDates}} · {{tripDuration}}</p>
+                          <table border="0" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:separate;">
+                            <tr>
+                              <td style="font-family:'Inter',Helvetica,Arial,sans-serif;font-size:13px;color:#878787;line-height:18px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;padding-bottom:4px;">Booking</td>
+                              <td align="right" style="font-family:'Inter',Helvetica,Arial,sans-serif;font-size:14px;color:#000000;line-height:20px;font-weight:600;padding-bottom:4px;">{{itemName}}</td>
+                            </tr>
+                            <tr>
+                              <td style="font-family:'Inter',Helvetica,Arial,sans-serif;font-size:13px;color:#878787;line-height:18px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;padding-top:12px;padding-bottom:4px;">Trip date</td>
+                              <td align="right" style="font-family:'Inter',Helvetica,Arial,sans-serif;font-size:14px;color:#000000;line-height:20px;font-weight:500;padding-top:12px;padding-bottom:4px;">{{tripDate}}</td>
+                            </tr>
+                            <tr>
+                              <td style="font-family:'Inter',Helvetica,Arial,sans-serif;font-size:13px;color:#878787;line-height:18px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;padding-top:12px;padding-bottom:4px;">Refund if cancelled now</td>
+                              <td align="right" style="font-family:'Inter',Helvetica,Arial,sans-serif;font-size:18px;color:#16a34a;line-height:24px;font-weight:700;padding-top:12px;padding-bottom:4px;">{{refundAmount}}</td>
+                            </tr>
+                          </table>
                         </td>
                       </tr>
                     </table>
                   </td>
                 </tr>
+                <tr style="height:24px"></tr>
+                <tr>
+                  <td>
+                    <p style="margin:0;padding:0;font-family:'Inter',Helvetica,Arial,sans-serif;font-weight:500;font-size:16px;color:#000000;line-height:24px;text-align:left;">
+                      Still going? <strong>Do nothing</strong> — your booking stays put. Need to cancel? Tap below before the deadline.
+                    </p>
+                  </td>
+                </tr>
                 <tr style="height:36px"></tr>
                 <tr>
                   <td>
-                    <a href="{{inviteUrl}}" target="_blank" style="text-decoration:none;">
+                    <a href="{{manageBookingUrl}}" target="_blank" style="text-decoration:none;">
                       <table border="0" cellpadding="0" cellspacing="0" style="background-color:#008bf6;border-radius:12px;box-shadow:4px 4px 15px rgba(16,24,40,0.15);width:100%;border-collapse:separate;">
                         <tr>
                           <td align="center" style="padding:16px 28px;">
                             <span style="font-family:'Inter',Helvetica,Arial,sans-serif;font-weight:500;font-size:16px;color:#ffffff;line-height:24px;white-space:nowrap;">
-                              Explore the itinerary
+                              Manage booking
                             </span>
                           </td>
                         </tr>
@@ -90,8 +121,7 @@
                 <tr>
                   <td>
                     <p style="margin:0;padding:0;font-family:'Inter',Helvetica,Arial,sans-serif;font-weight:500;font-size:16px;color:#878787;line-height:24px;text-align:left;">
-                      Not sure about this invitation? You can confirm your interest from the link above, or reach out to <a href="mailto:support@picktrip.com" style="color:#008bf6;text-decoration:none;">support@picktrip.com</a> if you have any questions.<br><br>
-                      This is an automated message — please don't reply.
+                      This is an automated reminder based on the supplier's policy. Need help deciding? Reach out at <a href="mailto:support@picktrip.com" style="color:#008bf6;text-decoration:none;">support@picktrip.com</a>.
                     </p>
                   </td>
                 </tr>
@@ -105,7 +135,7 @@
     <tr>
       <td align="center">
         <p style="margin:0;padding:0;font-family:'Inter',Helvetica,Arial,sans-serif;font-weight:500;font-size:16px;color:#878787;text-align:center;line-height:normal;">
-          Stay connected!
+          We've got your back.
         </p>
       </td>
     </tr>

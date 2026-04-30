@@ -1,1 +1,7 @@
+node_modules/
+screenshots/
+package-lock.json
 .DS_Store
+.screenshot.mjs
+.fix-hero.mjs
+.fix-social.mjs

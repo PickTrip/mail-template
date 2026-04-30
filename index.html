@@ -8,123 +8,307 @@
   <style>
     body {
       margin: 0;
-      padding: 0;
+      padding: 40px 20px 80px;
       min-height: 100vh;
-      font-family: Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', Arial, sans-serif;
       background: linear-gradient(135deg, #1e1e2f, #323248);
       color: #ffffff;
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       flex-direction: column;
     }
 
     .header {
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
     }
 
     .header h1 {
-      font-size: 4rem;
-      margin-bottom: 0.5rem;
+      font-size: 3.5rem;
+      margin: 0 0 0.5rem 0;
       color: #ffffff;
+      font-weight: 700;
+      letter-spacing: -1px;
     }
 
     .header p {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      color: #ffffff;
+      font-size: 1.15rem;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.65);
     }
 
     .container {
       width: 100%;
-      max-width: 600px;
+      max-width: 640px;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 2.5rem;
     }
+
+    .group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .group-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+      margin: 0 0 0.25rem 0.25rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .badge-p0 { background: rgba(239, 68, 68, 0.2); color: #fca5a5; }
+    .badge-p1 { background: rgba(245, 158, 11, 0.2); color: #fcd34d; }
+    .badge-p2 { background: rgba(16, 185, 129, 0.2); color: #6ee7b7; }
+    .badge-base { background: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.7); }
 
     .template-link {
       text-decoration: none;
-      padding: 1.2rem;
+      padding: 1rem 1.2rem;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 12px;
-      transition: all 0.3s ease;
+      transition: all 0.25s ease;
       backdrop-filter: blur(10px);
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 1rem;
     }
 
     .template-link:hover {
       transform: translateY(-2px);
       background: rgba(255, 255, 255, 0.1);
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .template-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex-grow: 1;
+      min-width: 0;
     }
 
     .template-text {
       margin: 0;
-      font-size: 1.1rem;
-      color: #e0e0e0;
-      flex-grow: 1;
+      font-size: 1rem;
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .template-meta {
+      margin: 0;
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.45);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
     }
 
     .arrow {
       color: #ffffff;
-      opacity: 0.5;
-      font-size: 1.2rem;
-      transition: transform 0.3s ease;
+      opacity: 0.4;
+      font-size: 1.1rem;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      flex-shrink: 0;
     }
 
     .template-link:hover .arrow {
-      transform: translateX(5px);
+      transform: translateX(4px);
       opacity: 1;
     }
 
     @media (max-width: 480px) {
-      .container {
-        padding: 0 10px;
-      }
-
-      .template-text {
-        font-size: 1rem;
-      }
+      .header h1 { font-size: 2.5rem; }
+      .template-text { font-size: 0.95rem; }
+      .template-meta { font-size: 0.72rem; }
     }
   </style>
 </head>
 
 <body>
+  <div class="header">
+    <h1>PickTrip</h1>
+    <p>郵件模板</p>
+  </div>
+
   <div class="container">
-    <div class="header">
-      <h1>PickTrip</h1>
-      <p>郵件模板</p>
+
+    <!-- P0 -->
+    <div class="group">
+      <div class="group-title">
+        <span class="badge badge-p0">P0</span>
+        <span>必有 — 缺了會被客訴 / 法務問題</span>
+      </div>
+
+      <a href="templates/order-confirmation.html" target="_blank" class="template-link">
+        <div class="template-info">
+          <p class="template-text">訂單成功確認</p>
+          <p class="template-meta">order-confirmation.html · provider CONFIRMED</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a href="templates/order-failed.html" target="_blank" class="template-link">
+        <div class="template-info">
+          <p class="template-text">訂單失敗（付款成功但 provider 出錯）</p>
+          <p class="template-meta">order-failed.html · status=FAILED &amp; paidAt</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a href="templates/refund-status.html" target="_blank" class="template-link">
+        <div class="template-info">
+          <p class="template-text">退款狀態（已啟動 / 已完成）</p>
+          <p class="template-meta">refund-status.html · refund-retry.service</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a href="templates/cancellation-confirmation.html" target="_blank" class="template-link">
+        <div class="template-info">
+          <p class="template-text">取消確認</p>
+          <p class="template-meta">cancellation-confirmation.html · user cancel API</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a href="templates/picktrip-invitation.html" target="_blank" class="template-link">
+        <div class="template-info">
+          <p class="template-text">協作邀請</p>
+          <p class="template-meta">picktrip-invitation.html · createInvitation / resendInvitation</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
     </div>
 
-    <a href="/templates/internal-announcement-and-professional-letter.html" target="_blank" class="template-link">
-      <span class="template-text">客服及人員專業書信內部公告</span>
-      <span class="arrow">→</span>
-    </a>
+    <!-- P1 -->
+    <div class="group">
+      <div class="group-title">
+        <span class="badge badge-p1">P1</span>
+        <span>強烈建議 — 提升轉換、減少客訴</span>
+      </div>
 
-    <a href="/templates/marketing.html" target="_blank" class="template-link">
-      <span class="template-text">營銷郵件</span>
-      <span class="arrow">→</span>
-    </a>
+      <a href="templates/voucher-ready.html" target="_blank" class="template-link">
+        <div class="template-info">
+          <p class="template-text">Voucher / e-ticket 已備妥</p>
+          <p class="template-meta">voucher-ready.html · syncDelivery 拉到 voucher</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
 
-    <a href="/templates/login-security-verification.html" target="_blank" class="template-link">
-      <span class="template-text">登入安全驗證</span>
-      <span class="arrow">→</span>
-    </a>
+      <a href="templates/esim-activation.html" target="_blank" class="template-link">
+        <div class="template-info">
+          <p class="template-text">eSIM 啟用說明</p>
+          <p class="template-meta">esim-activation.html · CONFIRMED + ICCID</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
 
-    <a href="/templates/verification-successful-fancy.html" target="_blank" class="template-link">
-      <span class="template-text">驗證成功</span>
-      <span class="arrow">→</span>
-    </a>
+      <a href="templates/free-cancel-reminder.html" target="_blank" class="template-link">
+        <div class="template-info">
+          <p class="template-text">Free-cancel 截止前 24h 提醒</p>
+          <p class="template-meta">free-cancel-reminder.html · daily cron</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
 
-    <a href="/templates/verification-successful.html" target="_blank" class="template-link">
-      <span class="template-text">驗證成功 (簡化版)</span>
-      <span class="arrow">→</span>
-    </a>
+      <a href="templates/flight-schedule-changed.html" target="_blank" class="template-link">
+        <div class="template-info">
+          <p class="template-text">航班時刻變更</p>
+          <p class="template-meta">flight-schedule-changed.html · Duffel webhook</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+
+    <!-- P2 -->
+    <div class="group">
+      <div class="group-title">
+        <span class="badge badge-p2">P2</span>
+        <span>可以但不急</span>
+      </div>
+
+      <a href="templates/flight-checkin-open.html" target="_blank" class="template-link">
+        <div class="template-info">
+          <p class="template-text">機票 24h check-in 開放</p>
+          <p class="template-meta">flight-checkin-open.html · daily cron @ departureAt-24h</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a href="templates/feedback-request.html" target="_blank" class="template-link">
+        <div class="template-info">
+          <p class="template-text">旅程後 feedback 邀請</p>
+          <p class="template-meta">feedback-request.html · 旅程結束 +2 天</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+
+    <!-- 既有 -->
+    <div class="group">
+      <div class="group-title">
+        <span class="badge badge-base">BASE</span>
+        <span>既有模板</span>
+      </div>
+
+      <a href="templates/internal-announcement-and-professional-letter.html" target="_blank" class="template-link">
+        <div class="template-info">
+          <p class="template-text">客服及人員專業書信內部公告</p>
+          <p class="template-meta">internal-announcement-and-professional-letter.html</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a href="templates/marketing.html" target="_blank" class="template-link">
+        <div class="template-info">
+          <p class="template-text">營銷郵件</p>
+          <p class="template-meta">marketing.html</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a href="templates/login-security-verification.html" target="_blank" class="template-link">
+        <div class="template-info">
+          <p class="template-text">登入安全驗證</p>
+          <p class="template-meta">login-security-verification.html</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a href="templates/verification-successful-fancy.html" target="_blank" class="template-link">
+        <div class="template-info">
+          <p class="template-text">驗證成功</p>
+          <p class="template-meta">verification-successful-fancy.html</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a href="templates/verification-successful.html" target="_blank" class="template-link">
+        <div class="template-info">
+          <p class="template-text">驗證成功（簡化版）</p>
+          <p class="template-meta">verification-successful.html</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+
   </div>
 </body>
 

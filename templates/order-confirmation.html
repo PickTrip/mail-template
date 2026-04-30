@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Join {{inviterName}}'s Adventure - PickTrip</title>
+  <title>Your booking is confirmed - PickTrip</title>
 </head>
 
 <body style="margin:0;padding:0;border:0;font:inherit;font-size:100%;line-height:1;-webkit-font-smoothing:antialiased;box-sizing:border-box;height:100%;background-color:#ffffff;">
@@ -27,14 +27,12 @@
               <table border="0" cellpadding="0" cellspacing="0" style="margin-top:0;background-color:#ffffff;border:1px solid #b8b8b8;border-radius:20px;padding:40px 45px 45px;max-width:900px;width:100%;border-collapse:separate;position:relative;">
                 <tr>
                   <td align="center" style="padding-bottom:24px;">
-                    <table border="0" cellpadding="0" cellspacing="0" style="border-collapse:separate;background-color:#e0e7ff;border-radius:50%;width:72px;height:72px;">
+                    <table border="0" cellpadding="0" cellspacing="0" style="border-collapse:separate;background-color:#d1fae5;border-radius:50%;width:72px;height:72px;">
                       <tr>
                         <td align="center" style="width:72px;height:72px;line-height:0;vertical-align:middle;">
-                          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                            <circle cx="9" cy="7" r="4"/>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
                           </svg>
                         </td>
                       </tr>
@@ -44,7 +42,7 @@
                 <tr>
                   <td>
                     <h1 style="margin:0;padding:0;font-family:'Inter',Helvetica,Arial,sans-serif;font-weight:700;font-size:24px;color:#000000;line-height:normal;text-align:left;">
-                      You're invited to join {{inviterName}}'s adventure
+                      Your booking is confirmed!
                     </h1>
                   </td>
                 </tr>
@@ -52,7 +50,7 @@
                 <tr>
                   <td>
                     <p style="margin:0;padding:0;font-family:'Inter',Helvetica,Arial,sans-serif;font-weight:500;font-size:16px;color:#000000;line-height:24px;text-align:left;">
-                      Exciting news — <strong>{{inviterName}}</strong> wants you on board for an unforgettable trip to <strong>{{destination}}</strong>. Jump into the Itinerary Hub to see the full plan, perks, and what's waiting for you.
+                      Hi {{userName}}, great news — we've locked in your trip to {{destination}}. Here's a quick summary of what's booked.
                     </p>
                   </td>
                 </tr>
@@ -62,9 +60,50 @@
                     <table border="0" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:separate;background-color:#f7f8fa;border-radius:12px;padding:20px;">
                       <tr>
                         <td>
-                          <p style="margin:0;padding:0;font-family:'Inter',Helvetica,Arial,sans-serif;font-weight:600;font-size:13px;color:#878787;line-height:18px;text-transform:uppercase;letter-spacing:0.5px;">Trip preview</p>
-                          <p style="margin:4px 0 0 0;padding:0;font-family:'Inter',Helvetica,Arial,sans-serif;font-weight:600;font-size:16px;color:#000000;line-height:22px;">{{tripTitle}}</p>
-                          <p style="margin:4px 0 0 0;padding:0;font-family:'Inter',Helvetica,Arial,sans-serif;font-weight:400;font-size:14px;color:#878787;line-height:20px;">{{tripDates}} · {{tripDuration}}</p>
+                          <p style="margin:0;padding:0;font-family:'Inter',Helvetica,Arial,sans-serif;font-weight:600;font-size:13px;color:#878787;line-height:18px;text-transform:uppercase;letter-spacing:0.5px;">Order</p>
+                          <p style="margin:4px 0 0 0;padding:0;font-family:'Inter',Helvetica,Arial,sans-serif;font-weight:600;font-size:16px;color:#000000;line-height:22px;">#{{orderId}}</p>
+                        </td>
+                      </tr>
+                      <tr style="height:16px"></tr>
+                      <tr>
+                        <td>
+                          <p style="margin:0;padding:0;font-family:'Inter',Helvetica,Arial,sans-serif;font-weight:600;font-size:13px;color:#878787;line-height:18px;text-transform:uppercase;letter-spacing:0.5px;">Trip dates</p>
+                          <p style="margin:4px 0 0 0;padding:0;font-family:'Inter',Helvetica,Arial,sans-serif;font-weight:500;font-size:16px;color:#000000;line-height:22px;">{{startDate}} – {{endDate}}</p>
+                        </td>
+                      </tr>
+                      <tr style="height:16px"></tr>
+                      <tr>
+                        <td>
+                          <p style="margin:0;padding:0;font-family:'Inter',Helvetica,Arial,sans-serif;font-weight:600;font-size:13px;color:#878787;line-height:18px;text-transform:uppercase;letter-spacing:0.5px;">Items booked</p>
+                        </td>
+                      </tr>
+                      <tr style="height:8px"></tr>
+                      <tr>
+                        <td>
+                          <!-- {{#each items}} -->
+                          <table border="0" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:separate;border-bottom:1px solid #e5e5e5;padding:8px 0;">
+                            <tr>
+                              <td style="font-family:'Inter',Helvetica,Arial,sans-serif;font-size:14px;color:#000000;line-height:20px;padding:8px 0;">
+                                {{itemName}}
+                                <span style="display:block;color:#878787;font-size:12px;margin-top:2px;">{{itemDetail}}</span>
+                              </td>
+                              <td align="right" style="font-family:'Inter',Helvetica,Arial,sans-serif;font-size:14px;color:#000000;line-height:20px;padding:8px 0;font-weight:600;white-space:nowrap;">
+                                {{itemPrice}}
+                              </td>
+                            </tr>
+                          </table>
+                          <!-- {{/each}} -->
+                        </td>
+                      </tr>
+                      <tr style="height:16px"></tr>
+                      <tr>
+                        <td>
+                          <table border="0" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:separate;">
+                            <tr>
+                              <td style="font-family:'Inter',Helvetica,Arial,sans-serif;font-size:16px;color:#000000;line-height:22px;font-weight:700;">Total paid</td>
+                              <td align="right" style="font-family:'Inter',Helvetica,Arial,sans-serif;font-size:18px;color:#000000;line-height:24px;font-weight:700;white-space:nowrap;">{{totalAmount}}</td>
+                            </tr>
+                          </table>
                         </td>
                       </tr>
                     </table>
@@ -73,12 +112,12 @@
                 <tr style="height:36px"></tr>
                 <tr>
                   <td>
-                    <a href="{{inviteUrl}}" target="_blank" style="text-decoration:none;">
+                    <a href="{{itineraryUrl}}" target="_blank" style="text-decoration:none;">
                       <table border="0" cellpadding="0" cellspacing="0" style="background-color:#008bf6;border-radius:12px;box-shadow:4px 4px 15px rgba(16,24,40,0.15);width:100%;border-collapse:separate;">
                         <tr>
                           <td align="center" style="padding:16px 28px;">
                             <span style="font-family:'Inter',Helvetica,Arial,sans-serif;font-weight:500;font-size:16px;color:#ffffff;line-height:24px;white-space:nowrap;">
-                              Explore the itinerary
+                              View your itinerary
                             </span>
                           </td>
                         </tr>
@@ -90,8 +129,9 @@
                 <tr>
                   <td>
                     <p style="margin:0;padding:0;font-family:'Inter',Helvetica,Arial,sans-serif;font-weight:500;font-size:16px;color:#878787;line-height:24px;text-align:left;">
-                      Not sure about this invitation? You can confirm your interest from the link above, or reach out to <a href="mailto:support@picktrip.com" style="color:#008bf6;text-decoration:none;">support@picktrip.com</a> if you have any questions.<br><br>
-                      This is an automated message — please don't reply.
+                      Vouchers and tickets will arrive in separate emails as soon as they're ready.<br><br>
+                      Need help? Reply to this email or contact us at <a href="mailto:support@picktrip.com" style="color:#008bf6;text-decoration:none;">support@picktrip.com</a>.<br><br>
+                      This is an automated message, please do not reply.
                     </p>
                   </td>
                 </tr>
@@ -105,7 +145,7 @@
     <tr>
       <td align="center">
         <p style="margin:0;padding:0;font-family:'Inter',Helvetica,Arial,sans-serif;font-weight:500;font-size:16px;color:#878787;text-align:center;line-height:normal;">
-          Stay connected!
+          Adventure awaits.
         </p>
       </td>
     </tr>
