@@ -29,9 +29,8 @@
     {{item.nights}}              — nights (Int)
     {{item.checkInTime}}         — HotelBaseInfoDetail.checkinFrom (e.g. "15:00")
     {{item.checkOutTime}}        — HotelBaseInfoDetail.checkoutTo (e.g. "11:00")
-    {{item.roomCount}}           — HotelSearchParameters.rooms
-    {{item.adultCount}}          — HotelSearchParameters.adults
-    {{item.childCount}}          — HotelSearchParameters.children (optional)
+    {{item.occupancySummary}}    — pre-rendered "1 間 · 2 成人" or
+                                    "1 間 · 2 成人 · 1 兒童"
 
   Per room — loop with {{#each item.rooms}}:
 
@@ -199,7 +198,7 @@
                         </td>
                         <td style="vertical-align:top;width:50%;padding-left:8px;">
                           <p style="margin:0;padding:0;font-family:'Inter',Helvetica,Arial,sans-serif;font-weight:600;font-size:11px;color:#878787;line-height:16px;text-transform:uppercase;letter-spacing:0.4px;">房間與人數</p>
-                          <p style="margin:6px 0 0 0;padding:0;font-family:'Inter',Helvetica,Arial,sans-serif;font-weight:600;font-size:14px;color:#000000;line-height:20px;">{{item.roomCount}} 間 · {{item.adultCount}} 成人{{#if item.childCount}} · {{item.childCount}} 兒童{{/if}}</p>
+                          <p style="margin:6px 0 0 0;padding:0;font-family:'Inter',Helvetica,Arial,sans-serif;font-weight:600;font-size:14px;color:#000000;line-height:20px;">{{item.occupancySummary}}</p>
                         </td>
                       </tr>
                     </table>
@@ -294,12 +293,12 @@
                   </td>
                 </tr>
 
-                <!-- booking ref -->
-                <!-- {{#if item.bookingRef}} -->
+                <!-- booking ref (server pre-renders the full line, omitting if empty) -->
+                <!-- {{#if item.referenceLine}} -->
                 <tr>
                   <td style="padding:0 20px 18px;">
                     <p style="margin:0;padding:0;font-family:'Inter',Helvetica,Arial,sans-serif;font-size:12px;color:#878787;line-height:18px;">
-                      預訂編號 <span style="color:#000000;font-weight:600;">{{item.bookingRef}}</span>{{#if item.confirmationCode}} · 確認碼 <span style="color:#000000;font-weight:600;">{{item.confirmationCode}}</span>{{/if}}
+                      {{{item.referenceLine}}}
                     </p>
                   </td>
                 </tr>
